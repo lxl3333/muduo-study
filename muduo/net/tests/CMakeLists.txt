@@ -1,0 +1,2 @@
+add_executable(Eventloop_test Eventloop_test.cpp)
+target_link_libraries(Eventloop_test muduo_base muduo_net)
