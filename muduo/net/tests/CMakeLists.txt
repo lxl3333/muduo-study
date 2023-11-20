@@ -1,2 +1,17 @@
 add_executable(Eventloop_test Eventloop_test.cpp)
 target_link_libraries(Eventloop_test muduo_base muduo_net)
+
+add_executable(Timer_fd_test Timer_fd_test.cpp)
+target_link_libraries(Timer_fd_test muduo_base muduo_net)
+
+add_executable(TimerQueue_test TimerQueue_test.cpp)
+target_link_libraries(TimerQueue_test muduo_base muduo_net)
+
+add_executable(Eventlpp_runinloop_test Eventlpp_runinloop_test.cpp)
+target_link_libraries(Eventlpp_runinloop_test muduo_base muduo_net)
+
+add_executable(EventLoopThread_test EventLoopThread_test.cpp)
+target_link_libraries(EventLoopThread_test muduo_base muduo_net)
+
+add_executable(Acceptor_test Acceptor_test.cpp)
+target_link_libraries(Acceptor_test muduo_base muduo_net)
