@@ -101,6 +101,7 @@ void TcpServer::removeConnection(const TcpConnectionPtr& conn)
 {
   // FIXME: unsafe
   loop_->runInLoop(std::bind(&TcpServer::removeConnectionInLoop, this, conn));
+  //loop_->runInLoop(std::bind(&TcpServer::removeConnectionInLoop, this, std::ref(conn)));
 }
 
 void TcpServer::removeConnectionInLoop(const TcpConnectionPtr& conn)

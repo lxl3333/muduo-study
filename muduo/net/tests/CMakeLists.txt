@@ -18,3 +18,6 @@ target_link_libraries(Acceptor_test muduo_base muduo_net)
 
 add_executable(TcpServer_test TcpServer_test.cpp)
 target_link_libraries(TcpServer_test muduo_base muduo_net)
+
+add_executable(EchoServer_test EchoServer_test.cpp)
+target_link_libraries(EchoServer_test muduo_base muduo_net)
