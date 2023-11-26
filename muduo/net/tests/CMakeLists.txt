@@ -21,3 +21,9 @@ target_link_libraries(TcpServer_test muduo_base muduo_net)
 
 add_executable(EchoServer_test EchoServer_test.cpp)
 target_link_libraries(EchoServer_test muduo_base muduo_net)
+
+add_executable(Buffer_test Buffer_test.cpp)
+target_link_libraries(Buffer_test muduo_base muduo_net)
+
+add_executable(Chargen Chargen.cpp)
+target_link_libraries(Chargen muduo_base muduo_net)
