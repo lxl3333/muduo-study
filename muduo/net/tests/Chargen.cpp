@@ -30,6 +30,7 @@ public:
             this->onWriteComplete(conn);
         });
 
+        server_.setThreadNum(10);
         if(print){
             loop_->runEvery(3,[&](){
                 printftrans();
@@ -72,8 +73,24 @@ private:
 
 
     void onWriteComplete(const TcpConnectionPtr & conn){
+        LOG_INFO<<conn->name();
         transferred_+=message_.size();
-        conn->send(message_);
+        LOG_TRACE<<conn.use_count();
+        conn->getLoop()->runAfter(0.1,[=](){
+            //conn->send(m);
+            LOG_INFO<<"123456";
+            LOG_TRACE<<conn.use_count();
+            if(conn->getLoop()==loop_){
+                LOG_INFO<<"111111"<<conn.use_count();
+
+            }else{
+                LOG_INFO<<conn->getLoop();
+            };
+            conn->send(message_);
+            LOG_TRACE<<conn.use_count();
+        });
+        LOG_TRACE<<conn.use_count();
+        //conn->send(message_);
     }
     void printftrans(){
         Timestamp end=Timestamp::now();

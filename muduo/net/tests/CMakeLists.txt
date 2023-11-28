@@ -27,3 +27,6 @@ target_link_libraries(Buffer_test muduo_base muduo_net)
 
 add_executable(Chargen Chargen.cpp)
 target_link_libraries(Chargen muduo_base muduo_net)
+
+add_executable(TcpClient_reg1 TcpClient_reg1.cpp)
+target_link_libraries(TcpClient_reg1 muduo_base muduo_net)

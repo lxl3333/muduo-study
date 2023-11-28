@@ -156,7 +156,9 @@ void TcpConnection::sendInLoop(const void* data, size_t len)
       remaining = len - nwrote;
       if (remaining == 0 && writeCompleteCallback_)
       {
+        LOG_TRACE<<shared_from_this().use_count();
         loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
+        LOG_TRACE<<shared_from_this().use_count();
       }
     }
     else // nwrote < 0
@@ -381,7 +383,9 @@ void TcpConnection::handleWrite()
         channel_->disableWriting();
         if (writeCompleteCallback_)
         {
+          LOG_TRACE<<shared_from_this().use_count();
           loop_->queueInLoop(std::bind(writeCompleteCallback_, shared_from_this()));
+          LOG_TRACE<<shared_from_this().use_count();
         }
         if (state_ == kDisconnecting)
         {
